@@ -1,0 +1,122 @@
+:root {
+    --blue: #00ADB5;
+    --black: #222831;
+    --grey: #393E46;
+}
+
+body {
+    margin: 0;
+    background-color: var(--black);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+textarea {
+    resize: none;
+}
+
+#textArea {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: xxx-large;
+    padding: 15vh 10vw;
+    background-color: transparent;
+    border: solid 3px var(--grey);
+    border-radius: 25px 0 25px 0;
+    transition-property: border, border-radius, opacity;
+    transition-duration: 0.4s;
+    outline: none !important;
+    color: cornflowerblue;
+}
+
+#textArea:focus-visible {
+    border: solid 6px cornflowerblue;
+    border-radius: 0 25px 0 25px;
+    transition-property: border, border-radius;
+    transition-duration: 0.4s;
+}
+
+button {
+    position: fixed;
+    left: 50%;
+    top: calc(50% + 30vh);
+    transform: translate(-50%, -50%);
+    background-color: var(--grey);
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: larger;
+    color: var(--black);
+    font-weight: bold;
+    box-shadow: 0 0 10px var(--blue);
+    transition-duration: 0.2s;
+    transition-delay: 0.1s;
+}
+
+img {
+    position: absolute;
+    top: 15vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+.animated {
+    -webkit-animation-name: buttonAnimation;
+    -webkit-animation-duration: 0.3s;
+    -webkit-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes buttonAnimation {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1) rotateZ(5deg);
+    }
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
+
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--grey);
+    padding: 10px;
+    border-radius: 15px;
+    color: var(--blue);
+    font-size: large;
+    font-weight: bolder;
+    opacity: 0;
+    animation-duration: 0.4s;
+}
+
+@keyframes popUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) translate3d(0, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    }
+}
+
+@keyframes popOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) translate3d(0, 100%, 0);
+    }
+}
