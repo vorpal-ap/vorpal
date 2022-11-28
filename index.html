@@ -13,10 +13,16 @@
 </head>
 <body>
     <img id="img" src="images/banner.png" alt="banner">
-    <label for="textArea">
-        <textarea id="textArea" title="hello world" placeholder="type message here" autofocus></textarea>
-    </label>
-    <button id="sendButton" type="submit" onclick="buttonCLick()">Send</button>
+    <div id="switchHolder">
+        <div id="themeSwitch" onclick="switchOn()">Dark</div>
+    </div>
+    <div id="middleArea">
+        <label for="textArea">
+            <textarea id="textArea" title="hello world" placeholder="type message here" onfocus="textFocus()"></textarea>
+            <button id="sendButton" type="submit" onclick="buttonCLick()">Send</button>
+        </label>
+
+    </div>
     <div id="popup">
         Sending Data...
     </div>

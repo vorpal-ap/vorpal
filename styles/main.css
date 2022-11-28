@@ -1,10 +1,11 @@
 /* Variables */
 
 :root {
-    --black: #000000;
-    --blue: #282A3A;
-    --yellow: #735F32;
-    --hay: #C69749;
+    --black: #222222;
+    --grey: #434242;
+    --hay: #735F32;
+    --cyan: #22A39F;
+    --white: #F3EFE0;
 }
 
 /* End of Variables */
@@ -53,6 +54,8 @@
 body {
     margin: 0;
     background-color: var(--black);
+    transition-duration: 1500ms;
+    transition-timing-function: ease-in-out;
 }
 
 ::-webkit-scrollbar {
@@ -64,7 +67,7 @@ textarea {
 }
 
 textarea::placeholder {
-    color: var(--hay);
+    color: var(--white);
     opacity: 0.3;
 }
 
@@ -73,14 +76,14 @@ button {
     left: 50%;
     top: calc(50% + 30vh);
     transform: translate(-50%, -50%);
-    background-color: var(--yellow);
+    background-color: var(--white);
     border: none;
     padding: 5px;
     border-radius: 5px;
     font-size: larger;
     color: var(--black);
     font-weight: bold;
-    box-shadow: 0 0 10px var(--blue);
+    box-shadow: 0 0 10px var(--white);
     transition-duration: 0.2s;
     transition-delay: 0.1s;
 }
@@ -95,6 +98,10 @@ img {
 /* End of Elements */
 
 /* Classes */
+
+.darkMode {
+    background-color: white !important;
+}
 
 .animated {
     -webkit-animation-name: buttonAnimation;
@@ -115,19 +122,25 @@ img {
     font-size: xxx-large;
     padding: 15vh 10vw;
     background-color: transparent;
-    border: solid 3px var(--yellow);
+    border: solid 3px var(--grey);
     border-radius: 25px 0 25px 0;
     transition-property: border, border-radius, opacity;
     transition-duration: 0.4s;
     outline: none !important;
-    color: var(--hay);
+    color: var(--cyan);
 }
 
 #textArea:focus-visible {
-    border: solid 6px var(--blue);
+    border: solid 6px var(--cyan);
     border-radius: 0 25px 0 25px;
     transition-property: border, border-radius;
     transition-duration: 0.4s;
+}
+
+#textArea:focus-visible + #sendButton {
+    background-color: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan);
+
 }
 
 #popup {
@@ -135,14 +148,41 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--yellow);
+    background-color: var(--grey);
     padding: 10px;
     border-radius: 15px;
-    color: var(--blue);
+    color: var(--white);
     font-size: large;
     font-weight: bolder;
     opacity: 0;
     animation-duration: 0.4s;
+}
+
+#switchHolder {
+    position: absolute;
+    height: 50px;
+    width: 100px;
+    padding: 25px;
+    top: 5vh;
+    right: 5vh;
+    border: var(--grey) solid 3px;
+    border-radius: 25px;
+}
+
+#themeSwitch {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    margin-left: 0;
+    background: var(--hay);
+    border: dashed 2px var(--white);
+    border-radius: 50%;
+    transition-duration: 1500ms;
+    transition-timing-function: ease-in-out;
+
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
 }
 
 /* End of ID's */
